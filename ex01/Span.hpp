@@ -22,13 +22,6 @@ class Span
 			int shortestSpan() const;
 			int longestSpan() const;
 
-			// template<typename Iterator>
-			// void addRange(Iterator begin, Iterator end)
-			// {
-			// 	if (static_cast<unsigned int>(std::distance(begin, end)) + _data.size() > _maxSize)
-			// 		throw std::out_of_range("Span is full. Cannot add range.");
-			// 	_data.insert(_data.end(), begin, end);
-			// }
 };
 
 #endif

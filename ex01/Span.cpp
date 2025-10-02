@@ -1,5 +1,5 @@
 #include "Span.hpp"
-
+#include <numeric>
 Span::Span(unsigned int N) : _maxSize(N) {}
 
 Span::Span(const Span& other) : _maxSize(other._maxSize), _data(other._data) {}
@@ -30,18 +30,22 @@ int Span::shortestSpan() const
 		throw std::logic_error("Not enough numbers to find a span.");
 
 	std::vector<int> sorted = _data;
+	// std::vector<int> min_sorted = _data;
 	std::sort(sorted.begin(), sorted.end());
 
-	int minSpan = sorted[1] - sorted[0];
+	// int minSpan = sorted[1] - sorted[0];
 
-	for (size_t i = 2; i < sorted.size(); ++i)
-	{
-		int span = sorted[i] - sorted[i - 1];
-		if (span < minSpan)
-			minSpan = span;
+	// for (size_t i = 2; i < sorted.size(); ++i)
+	// {
+	// 	int span = sorted[i] - sorted[i - 1];
+	// 	if (span < minSpan)
+	// 		minSpan = span;
 		
-	}
-	return minSpan;
+	// }
+	std::adjacent_difference(sorted.begin(), sorted.end(), sorted.begin());
+
+// 17, 12, 14 , 
+	return (*std::min_element(sorted.begin(), sorted.end()));
 }
 
 int Span::longestSpan() const
