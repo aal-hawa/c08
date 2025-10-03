@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <iterator>
+#include <numeric>
 
 class Span 
 {
@@ -13,6 +14,7 @@ class Span
 		std::vector<int> _data;
 
 		public:
+			Span();
 			Span(unsigned int N);
 			Span(const Span& other);
 			Span& operator=(const Span& other);

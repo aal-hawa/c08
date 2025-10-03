@@ -1,5 +1,8 @@
 #include "Span.hpp"
-#include <numeric>
+
+
+Span::Span() : _maxSize(0) {}
+
 Span::Span(unsigned int N) : _maxSize(N) {}
 
 Span::Span(const Span& other) : _maxSize(other._maxSize), _data(other._data) {}
